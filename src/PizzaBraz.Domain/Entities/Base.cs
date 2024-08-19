@@ -8,6 +8,19 @@ namespace PizzaBraz.Domain.Entities
 {
     public abstract class Base
     {
-        public int Id { get; set; }
+        public Guid Id { get; private set; }
+        public DateTime CreatedAt { get; private set; }
+        public DateTime UpdatedAt { get; private set; }
+
+        protected Base()
+        {
+            CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
+        }
+
+        public void UpdateTimestamp()
+        {
+            UpdatedAt = DateTime.UtcNow;
+        }
     }
 }
