@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBraz.API", "src\PizzaBraz.API\PizzaBraz.API.csproj", "{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBraz.Core", "src\PizzaBraz.Core\PizzaBraz.Core.csproj", "{AE7FB071-9841-4CCF-AC0D-A306D619DD13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBraz.Domain", "src\PizzaBraz.Domain\PizzaBraz.Domain.csproj", "{611CDD6C-9943-4B5F-BE3A-B7058461AAA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBraz.Infra", "src\PizzaBraz.Infra\PizzaBraz.Infra.csproj", "{792CBEEC-97FB-4231-866A-6AE6664506B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBraz.Services", "src\PizzaBraz.Services\PizzaBraz.Services.csproj", "{2F8C3E9F-610A-452F-8642-0CA354F95118}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE7FB071-9841-4CCF-AC0D-A306D619DD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE7FB071-9841-4CCF-AC0D-A306D619DD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE7FB071-9841-4CCF-AC0D-A306D619DD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE7FB071-9841-4CCF-AC0D-A306D619DD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611CDD6C-9943-4B5F-BE3A-B7058461AAA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611CDD6C-9943-4B5F-BE3A-B7058461AAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611CDD6C-9943-4B5F-BE3A-B7058461AAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611CDD6C-9943-4B5F-BE3A-B7058461AAA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792CBEEC-97FB-4231-866A-6AE6664506B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792CBEEC-97FB-4231-866A-6AE6664506B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792CBEEC-97FB-4231-866A-6AE6664506B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792CBEEC-97FB-4231-866A-6AE6664506B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F8C3E9F-610A-452F-8642-0CA354F95118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F8C3E9F-610A-452F-8642-0CA354F95118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F8C3E9F-610A-452F-8642-0CA354F95118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F8C3E9F-610A-452F-8642-0CA354F95118}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
+		{AE7FB071-9841-4CCF-AC0D-A306D619DD13} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
+		{611CDD6C-9943-4B5F-BE3A-B7058461AAA6} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
+		{792CBEEC-97FB-4231-866A-6AE6664506B7} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
+		{2F8C3E9F-610A-452F-8642-0CA354F95118} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
+	EndGlobalSection
+EndGlobal
