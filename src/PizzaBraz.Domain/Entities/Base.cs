@@ -12,15 +12,9 @@ namespace PizzaBraz.Domain.Entities
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdatedAt { get; private set; }
 
-        protected Base()
-        {
-            CreatedAt = DateTime.UtcNow;
-            UpdatedAt = DateTime.UtcNow;
-        }
+        internal List<string> _errors;
+        public IReadOnlyCollection<string> Errors => _errors;
 
-        public void UpdateTimestamp()
-        {
-            UpdatedAt = DateTime.UtcNow;
-        }
+        public abstract bool Validate();
     }
 }
