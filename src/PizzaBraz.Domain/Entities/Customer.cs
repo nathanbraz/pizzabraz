@@ -18,6 +18,10 @@ namespace PizzaBraz.Domain.Entities
         public ICollection<Address> Addresses { get; set; }
         public ICollection<Order> Orders { get; set; }
 
+        public override bool Validate()
+        {
+            throw new NotImplementedException();
+        }
 
         //public string Name { get; set; }
         //public string WhatsAppNumber { get; set; }

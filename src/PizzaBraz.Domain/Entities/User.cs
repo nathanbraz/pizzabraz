@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaBraz.Domain.Validators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,19 +14,18 @@ namespace PizzaBraz.Domain.Entities
         public string Password { get; private set; }
         public string Role { get; private set; }
 
-        public Guid CompanyId { get; set; }
-        public Company Company { get; set; }
+        public Guid CompanyId { get; private set; }
+        public Company? Company { get; private set; }
 
         protected User() { }
 
-        public User(string name, string email, string password, string role, Guid companyId, Company company)
+        public User(string name, string email, string password, string role, Guid companyId)
         {
             Name = name;
             Email = email;
             Password = password;
             Role = role;
             CompanyId = companyId;
-            Company = company;
             _errors = new List<string>();
         }
 
@@ -49,6 +49,19 @@ namespace PizzaBraz.Domain.Entities
 
         public override bool Validate()
         {
+            var validator = new UserValidator();
+            var validation = validator.Validate(this);
+
+            if(!validation.IsValid)
+            {
+                foreach (var error in validation.Errors)
+                {
+                    _errors.Add(error.ErrorMessage);
+                }
+
+                throw new Exception("Campos inválidos! " + _errors[0]);
+            }
+
             return true;
         }
     }

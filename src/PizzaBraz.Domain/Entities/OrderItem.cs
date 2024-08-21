@@ -15,5 +15,10 @@ namespace PizzaBraz.Domain.Entities
 
         public Order Order { get; set; }
         public Product Product { get; set; }
+
+        public override bool Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

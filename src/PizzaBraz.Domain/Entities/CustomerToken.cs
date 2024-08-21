@@ -15,5 +15,10 @@ namespace PizzaBraz.Domain.Entities
         public bool IsUsed { get; set; }
 
         public Customer Customer { get; set; }
+
+        public override bool Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

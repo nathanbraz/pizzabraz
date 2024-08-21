@@ -15,5 +15,10 @@ namespace PizzaBraz.Domain.Entities
 
         public ProductType ProductType { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
+
+        public override bool Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

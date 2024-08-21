@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}"
+	ProjectSection(SolutionItems) = preProject
+		History.txt = History.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBraz.API", "src\PizzaBraz.API\PizzaBraz.API.csproj", "{9111A5CD-6C9E-4414-A242-E1D27CCBE6B7}"
 EndProject
@@ -56,5 +59,8 @@ Global
 		{611CDD6C-9943-4B5F-BE3A-B7058461AAA6} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
 		{792CBEEC-97FB-4231-866A-6AE6664506B7} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
 		{2F8C3E9F-610A-452F-8642-0CA354F95118} = {72659CB9-8BEA-4ADA-AFBE-864C20DC1B5F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0B1D1B1-9E3A-4510-9658-18FE0F81BD02}
 	EndGlobalSection
 EndGlobal
