@@ -2,11 +2,6 @@
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Infra.Context;
 using PizzaBraz.Infra.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzaBraz.Infra.Repositories
 {
@@ -44,7 +39,7 @@ namespace PizzaBraz.Infra.Repositories
             return obj;
         }
 
-        public virtual async Task Delete(Guid id)
+        public virtual async Task Remove(Guid id)
         {
             var obj = await Get(id);
 

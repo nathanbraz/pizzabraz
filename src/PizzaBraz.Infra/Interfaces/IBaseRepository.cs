@@ -11,7 +11,7 @@ namespace PizzaBraz.Infra.Interfaces
     {
         Task<T> Create(T obg);
         Task<T> Update(T obg);
-        Task Delete(Guid id);
+        Task Remove(Guid id);
         Task<T> Get(Guid id);
         Task<List<T>> GetAll();
 
