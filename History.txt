@@ -2,3 +2,5 @@
 2 - Criação da entity Base e entities do projeto na camada Domain.
 3 - Transformando entidades Anêmicas em entidades ricas, ou seja, usando private set e transformando em entidade auto validadora.
 4 - Instalando o Fluent Validation e criando a primeira Validação, que é a UserValidator.
+5 - Criando Interface e implementações de Repositórios.
+6 - Instalando o pacote nuget "EntityFrameworkCore"

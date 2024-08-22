@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Domain.Entities
 {
-    public  class Customer : Base
+    public class Customer : Base
     {
         public string Name { get; set; }
         public string WhatsAppNumber { get; set; }
