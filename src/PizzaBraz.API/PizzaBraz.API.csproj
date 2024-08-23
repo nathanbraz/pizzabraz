@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\PizzaBraz.Core\PizzaBraz.Core.csproj" />
+    <ProjectReference Include="..\PizzaBraz.Domain\PizzaBraz.Domain.csproj" />
+    <ProjectReference Include="..\PizzaBraz.Infra\PizzaBraz.Infra.csproj" />
+    <ProjectReference Include="..\PizzaBraz.Services\PizzaBraz.Services.csproj" />
   </ItemGroup>
 
 </Project>
