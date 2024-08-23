@@ -6,4 +6,4 @@
 6 - Instalando o pacote nuget "EntityFrameworkCore", "EntityFrameworkCore.Design", "EntityFrameworkCore.Tools". EntityFrameworkCore.Relational"
 7 - Criando o UserMap para mapeamento das tabelas, organizando o contexto do banco de dados e também o Repositório de User
 8 - Criando o restante dos mappings e adicionando novas classes
-9 - 
+9 - Criando as interfaces e implementações de repositórios das demais classes
