@@ -16,7 +16,7 @@ namespace PizzaBraz.Domain.Entities
         public decimal Total { get; set; }
 
         public Customer Customer { get; set; }
-        public Address Address { get; set; }
+        public CustomerAddress Address { get; set; }
         public Company Company { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }

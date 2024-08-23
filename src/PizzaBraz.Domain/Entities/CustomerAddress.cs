@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Domain.Entities
 {
-    public class Address : Base
+    public class CustomerAddress : Base
     {
         public Guid CustomerId { get; set; }
         public string Street { get; set; }

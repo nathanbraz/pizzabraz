@@ -15,7 +15,7 @@ namespace PizzaBraz.Domain.Entities
         public Guid CompanyId { get; set; }
         public Company Company { get; set; }
 
-        public ICollection<Address> Addresses { get; set; }
+        public ICollection<CustomerAddress> Addresses { get; set; }
         public ICollection<Order> Orders { get; set; }
 
         public override bool Validate()

@@ -8,7 +8,7 @@ namespace PizzaBraz.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("users");
+            builder.ToTable("user");
             builder.HasKey(x => x.Id);
 
         }

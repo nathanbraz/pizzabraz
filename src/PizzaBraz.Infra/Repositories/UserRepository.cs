@@ -2,13 +2,6 @@
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Infra.Context;
 using PizzaBraz.Infra.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
 namespace PizzaBraz.Infra.Repositories
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
@@ -27,7 +20,7 @@ namespace PizzaBraz.Infra.Repositories
 
         public async Task<User> GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Users.SingleOrDefaultAsync(x => x.Email == email);
         }
 
         public async Task<List<User>> SearchByEmail(string email)
