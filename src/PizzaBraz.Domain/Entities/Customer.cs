@@ -13,6 +13,7 @@ namespace PizzaBraz.Domain.Entities
         public string Email { get; set; }
 
         public Guid CompanyId { get; set; }
+        public Guid ProductTypeId { get; set; }
         public Company Company { get; set; }
 
         public ICollection<CustomerAddress> Addresses { get; set; }
@@ -20,21 +21,7 @@ namespace PizzaBraz.Domain.Entities
 
         public override bool Validate()
         {
-            throw new NotImplementedException();
+            return true;
         }
-
-        //public string Name { get; set; }
-        //public string WhatsAppNumber { get; set; }
-        //public Guid Token { get; set; }
-        //public DateTime TokenGeneratedDate { get; set; }
-
-        //public ICollection<Address> Addresses { get; set; }
-        //public ICollection<Order> Orders { get; set; }
-
-        //public void SetToken(Guid token)
-        //{
-        //    Token = token;
-        //    TokenGeneratedDate = DateTime.UtcNow;
-        //}
     }
 }

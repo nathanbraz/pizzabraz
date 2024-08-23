@@ -18,11 +18,10 @@ namespace PizzaBraz.Domain.Entities
         public string ZipCode { get; set; }
 
         public Customer Customer { get; set; }
-        public ICollection<Order> Orders { get; set; }
 
         public override bool Validate()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

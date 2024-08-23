@@ -10,8 +10,8 @@ namespace PizzaBraz.Domain.Entities
     {
         public Guid CustomerId { get; set; }
         public Guid Token { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public DateTime TokenCreateAt { get; set; }
+        public DateTime TokenExpiresAt { get; set; }
         public bool IsUsed { get; set; }
 
         public Customer Customer { get; set; }

@@ -23,7 +23,7 @@ namespace PizzaBraz.Domain.Entities
 
         public override bool Validate()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
