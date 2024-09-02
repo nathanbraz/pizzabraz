@@ -24,7 +24,7 @@ namespace PizzaBraz.API.Controllers
             {
                 var userDTO = new UserDTO
                 {
-                    CompanyId = user.CompanyId,
+                    //CompanyId = user.CompanyId,
                     Email = user.Email,
                     Name = user.Name,
                     Password = user.Password,

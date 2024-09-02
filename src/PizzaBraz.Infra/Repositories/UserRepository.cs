@@ -13,10 +13,10 @@ namespace PizzaBraz.Infra.Repositories
             _context = context;
         }
 
-        public async Task<List<User>> GetByCompanyId(Guid companyId)
-        {
-            return await _context.Users.Where(x => x.CompanyId == companyId).ToListAsync();
-        }
+        //public async Task<List<User>> GetByCompanyId(Guid companyId)
+        //{
+        //    return await _context.Users.Where(x => x.CompanyId == companyId).ToListAsync();
+        //}
 
         public async Task<User> GetByEmail(string email)
         {

@@ -3,7 +3,28 @@
 3 - Transformando entidades Anêmicas em entidades ricas, ou seja, usando private set e transformando em entidade auto validadora.
 4 - Instalando o Fluent Validation e criando a primeira Validação, que é a UserValidator.
 5 - Criando Interface e implementações de Repositórios.
-6 - Instalando o pacote nuget "EntityFrameworkCore", "EntityFrameworkCore.Design", "EntityFrameworkCore.Tools". EntityFrameworkCore.Relational"
+6 - Instalando o pacote nuget "EntityFrameworkCore", "EntityFrameworkCore.Design", "EntityFrameworkCore.Tools". ""EntityFrameworkCore.Relational"
 7 - Criando o UserMap para mapeamento das tabelas, organizando o contexto do banco de dados e também o Repositório de User
 8 - Criando o restante dos mappings e adicionando novas classes
 9 - Criando as interfaces e implementações de repositórios das demais classes
+10 - Finalizando as entidades
+11 - Instalando AutoMapper, Npgsql
+12 - Criando a primeira Dto, controller e testando a api (ainda sem conexão com o banco por que falta o mapeamento)
+13 - organizando a Class Program
+
+
+
+
+
+-- Para rodar as migrations
+	OBSERVAÇÃO:  o EntityFrameworkCore.Design deve estar presente no projeto de inicialização, para os comandos funcionarem.
+	OBSERVAÇÃO: Aparentemente o Pacote EntityFrameworkCore.Design deve estar no projeto de inicialização, no caso a API, então teremos que remover ele da PizzaBraz.Infra
+
+	Para evitar problemas, primeiro definimos o projeto de inicialização como o PizzaBraz.API, depois vamos na pr\abaixo
+
+	dotnet ef migrations add FirstCreateUserr --project . --startup-project ../PizzaBraz.API --------- CRIA A MIGRATION
+
+	dotnet ef database update --project . --startup-project ../PizzaBraz.API                --------- EXECUTA ELA, INSERINDO NO BANCO AS TABELAS
+
+	dotnet ef migrations remove --project . --startup-project ../PizzaBraz.API              --------- REMOVE A MIGRATION CRIADA
+

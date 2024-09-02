@@ -13,6 +13,10 @@ using PizzaBraz.API.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var stringConexao = builder.Configuration.GetConnectionString("PizzaBraz");
+
+builder.Services.AddDbContext<PizzaBrazContext>(options => options.UseNpgsql(stringConexao, b => b.MigrationsAssembly("PizzaBraz.Infra")));
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -26,9 +30,6 @@ var autoMapperConfig = new MapperConfiguration(conf =>
 });
 builder.Services.AddSingleton(autoMapperConfig.CreateMapper());
 
-// Dependency Injection
-var stringConexao = builder.Configuration["ConnectionStrings:USER_MANAGER"];
-builder.Services.AddDbContext<PizzaBrazContext>(options => options.UseNpgsql(stringConexao), ServiceLifetime.Transient);
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 //builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();

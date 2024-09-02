@@ -34,9 +34,16 @@ namespace PizzaBraz.Services.Services
             return _mapper.Map<UserDTO>(userCreated);
         }
 
-        public Task<UserDTO> Get(Guid id)
+        public async Task<UserDTO> Get(Guid id)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.Get(id);
+
+            if (user != null)
+            {
+                throw new Exception();
+            }
+
+            return _mapper.Map<UserDTO>(user);
         }
 
         public Task<List<UserDTO>> GetAll()
