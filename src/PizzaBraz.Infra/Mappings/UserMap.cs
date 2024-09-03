@@ -8,13 +8,17 @@ namespace PizzaBraz.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("users");
+            builder.ToTable("user");
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
                 .HasDefaultValueSql("gen_random_uuid()")
                 .HasColumnName("id")
+                .HasColumnType("UUID");
+
+            builder.Property(x => x.CompanyId)
+                .HasColumnName("company_id")
                 .HasColumnType("UUID");
 
             builder.Property(u => u.Name)
@@ -50,9 +54,15 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnType("TIMESTAMP");
 
             builder.Property(x => x.UpdatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnName("updated_at")
                 .HasColumnType("TIMESTAMP");
+
+            // Configuração do relacionamento com Company
+            builder.HasOne(u => u.Company)
+                   .WithMany(c => c.Users)
+                   .HasForeignKey(u => u.CompanyId)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_User_Company");
 
         }
     }

@@ -14,18 +14,18 @@ namespace PizzaBraz.Domain.Entities
         public string Password { get; private set; }
         public string Role { get; private set; }
 
-        //public Guid CompanyId { get; private set; }
-        //public Company? Company { get; private set; }
+        public Guid CompanyId { get; private set; }
+        public Company? Company { get; private set; }
 
         protected User() { }
 
-        public User(string name, string email, string password, string role/*, Guid companyId*/)
+        public User(string name, string email, string password, string role, Guid companyId)
         {
             Name = name;
             Email = email;
             Password = password;
             Role = role;
-            //CompanyId = companyId;
+            CompanyId = companyId;
             _errors = new List<string>();
         }
 

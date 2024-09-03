@@ -13,11 +13,11 @@ namespace PizzaBraz.Domain.Entities
         public string Email { get; set; }
 
         public Guid CompanyId { get; set; }
-        public Guid ProductTypeId { get; set; }
         public Company Company { get; set; }
 
-        public ICollection<CustomerAddress> Addresses { get; set; }
+        public ICollection<CustomerAddress> CustomerAddresses { get; set; }
         public ICollection<Order> Orders { get; set; }
+        public ICollection<CustomerToken> CustomerTokens { get; set; }
 
         public override bool Validate()
         {

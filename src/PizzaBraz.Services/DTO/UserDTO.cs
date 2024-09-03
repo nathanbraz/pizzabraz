@@ -14,17 +14,17 @@ namespace PizzaBraz.Services.DTO
         public string Password { get; set; }
         public string Role { get; set; }
 
-        //public Guid CompanyId { get; set; }
+        public Guid CompanyId { get; set; }
 
         public UserDTO() { }
 
-        public UserDTO(string name, string email, string password, string role/*, Guid companyId*/)
+        public UserDTO(string name, string email, string password, string role, Guid companyId)
         {
             Name = name;
             Email = email;
             Password = password;
             Role = role;
-            //CompanyId = companyId;
+            CompanyId = companyId;
         }
     }
 }
