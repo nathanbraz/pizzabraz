@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PizzaBraz.Core.Services;
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Infra.Interfaces;
 using PizzaBraz.Services.DTO;
@@ -25,6 +26,8 @@ namespace PizzaBraz.Services.Services
             {
                 throw new Exception();
             }
+
+            userDTO.Password = PasswordHasher.HashPassword(userDTO.Password);
 
             var user = _mapper.Map<User>(userDTO);
             user.Validate();

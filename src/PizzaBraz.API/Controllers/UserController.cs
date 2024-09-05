@@ -29,17 +29,17 @@ namespace PizzaBraz.API.Controllers
                     Name = user.Name,
                     Password = user.Password,
                     Role = user.Role,
-                    CreatedAt = DateTime.Now,
-                    UpdateAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdateAt = DateTime.UtcNow,
                 };
 
                 var userCreated = await _userService.Create(userDTO);
 
                 return Ok(userCreated);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, "Ocorreu um erro ao cadastrar um usuário.");
             }
         }
     }
