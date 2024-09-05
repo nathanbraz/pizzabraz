@@ -20,11 +20,17 @@
 	OBSERVAÇÃO:  o EntityFrameworkCore.Design deve estar presente no projeto de inicialização, para os comandos funcionarem.
 	OBSERVAÇÃO: Aparentemente o Pacote EntityFrameworkCore.Design deve estar no projeto de inicialização, no caso a API, então teremos que remover ele da PizzaBraz.Infra
 
-	Para evitar problemas, primeiro definimos o projeto de inicialização como o PizzaBraz.API, depois vamos na pr\abaixo
+	Para evitar problemas, primeiro definimos o projeto de inicialização como o PizzaBraz.API, depois vamos na pasta PizzaBraz.Infra e rodamos abaixo os códigos
 
-	dotnet ef migrations add FirstCreateUserr --project . --startup-project ../PizzaBraz.API --------- CRIA A MIGRATION
+	dotnet ef migrations add Tables --project . --startup-project ../PizzaBraz.API --------- CRIA A MIGRATION
 
 	dotnet ef database update --project . --startup-project ../PizzaBraz.API                --------- EXECUTA ELA, INSERINDO NO BANCO AS TABELAS
 
 	dotnet ef migrations remove --project . --startup-project ../PizzaBraz.API              --------- REMOVE A MIGRATION CRIADA
+
+
+
+14 - Mapeamentos feitos, migrations executadas, banco de dados com tabelas criadas e usuário já sendo inserido no banco
+
+
 

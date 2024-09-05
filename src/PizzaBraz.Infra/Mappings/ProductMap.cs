@@ -22,7 +22,7 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnName("id")
                 .HasColumnType("UUID");
 
-            builder.Property(x => x.Company)
+            builder.Property(x => x.CompanyId)
                 .HasColumnName("company_id")
                 .HasColumnType("UUID");
 
@@ -44,7 +44,7 @@ namespace PizzaBraz.Infra.Mappings
             builder.Property(p => p.Price)
                 .IsRequired()
                 .HasColumnName("price")
-                .HasColumnType("DECIMAL");
+                .HasColumnType("DECIMAL(18,2)");
 
             builder.Property(c => c.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
@@ -61,6 +61,7 @@ namespace PizzaBraz.Infra.Mappings
                 .HasForeignKey(p => p.ProductTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Configuração da relação com Company
             builder.HasOne(p => p.Company)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CompanyId)

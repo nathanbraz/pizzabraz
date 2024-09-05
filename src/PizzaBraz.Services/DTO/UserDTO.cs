@@ -13,18 +13,22 @@ namespace PizzaBraz.Services.DTO
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdateAt { get; set; }
 
         public Guid CompanyId { get; set; }
 
         public UserDTO() { }
 
-        public UserDTO(string name, string email, string password, string role, Guid companyId)
+        public UserDTO(string name, string email, string password, string role, Guid companyId, DateTime createdAt, DateTime updatedAt)
         {
             Name = name;
             Email = email;
             Password = password;
             Role = role;
             CompanyId = companyId;
+            CreatedAt = createdAt;
+            UpdateAt = updatedAt;
         }
     }
 }
