@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PizzaBraz.Core\PizzaBraz.Core.csproj" />
     <ProjectReference Include="..\PizzaBraz.Infra\PizzaBraz.Infra.csproj" />
   </ItemGroup>
 

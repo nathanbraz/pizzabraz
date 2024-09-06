@@ -27,11 +27,16 @@ var autoMapperConfig = new MapperConfiguration(conf =>
 {
     conf.CreateMap<User, UserDTO>().ReverseMap();
     conf.CreateMap<UserViewModel, UserDTO>().ReverseMap();
+
+    conf.CreateMap<Company, CompanyDTO>().ReverseMap();
+    conf.CreateMap<CompanyViewModel, CompanyDTO>().ReverseMap();
 });
 builder.Services.AddSingleton(autoMapperConfig.CreateMapper());
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 //builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 
 // Swagger Configuration
