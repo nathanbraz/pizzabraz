@@ -9,5 +9,6 @@ namespace PizzaBraz.Infra.Interfaces
 {
     public interface ICompanyRepository : IBaseRepository<Company>
     {
+        Task<Company> GetByCNPJ(string cnpj);
     }
 }

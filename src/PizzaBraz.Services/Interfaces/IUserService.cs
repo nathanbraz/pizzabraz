@@ -13,9 +13,9 @@ namespace PizzaBraz.Services.Interfaces
         Task<UserDTO> Update(UserDTO userDTO);
         Task Remove(Guid id);
         Task<UserDTO> Get(Guid id);
+        Task<UserDTO> GetByEmail(string email);
         Task<List<UserDTO>> GetAll();
         Task<List<UserDTO>> SearchByName(string name);
         Task<List<UserDTO>> SearchByEmail(string email);
-        Task<UserDTO> GetByEmail(string email);
     }
 }

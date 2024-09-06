@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using PizzaBraz.Core.Exceptions;
 using PizzaBraz.Core.Services;
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Infra.Interfaces;
 using PizzaBraz.Services.DTO;
 using PizzaBraz.Services.Interfaces;
+using System.Xml.Linq;
 
 namespace PizzaBraz.Services.Services
 {
@@ -20,11 +22,11 @@ namespace PizzaBraz.Services.Services
 
         public async Task<UserDTO> Create(UserDTO userDTO)
         {
-            var userExists = await _userRepository.Get(userDTO.Id);
+            var userExists = await _userRepository.GetByEmail(userDTO.Email);
 
             if (userExists != null)
             {
-                throw new Exception();
+                throw new DomainException("Já existe um usuário com este email.");
             }
 
             userDTO.Password = PasswordHasher.HashPassword(userDTO.Password);
@@ -37,46 +39,61 @@ namespace PizzaBraz.Services.Services
             return _mapper.Map<UserDTO>(userCreated);
         }
 
+        public async Task<UserDTO> Update(UserDTO userDTO)
+        {
+            var userExists = await _userRepository.Get(userDTO.Id);
+
+            if (userExists == null)
+            {
+                throw new DomainException("Não existe nenhum usuário com o id informado");
+            }
+
+            var user = _mapper.Map<User>(userDTO);
+            user.Validate();
+
+            var UserCreated = await _userRepository.Update(user);
+
+            return _mapper.Map<UserDTO>(UserCreated);
+        }
+
         public async Task<UserDTO> Get(Guid id)
         {
             var user = await _userRepository.Get(id);
 
-            if (user != null)
-            {
-                throw new Exception();
-            }
+            return _mapper.Map<UserDTO>(user);
+        }
+
+        public async Task<List<UserDTO>> GetAll()
+        {
+            var users = await _userRepository.GetAll();
+
+            return _mapper.Map<List<UserDTO>>(users);
+        }
+
+        public async Task<UserDTO> GetByEmail(string email)
+        {
+            var user = await _userRepository.GetByEmail(email);
 
             return _mapper.Map<UserDTO>(user);
         }
 
-        public Task<List<UserDTO>> GetAll()
+        public async Task Remove(Guid id)
         {
-            throw new NotImplementedException();
+            await _userRepository.Remove(id);
         }
 
-        public Task<UserDTO> GetByEmail(string email)
+        public async Task<List<UserDTO>> SearchByEmail(string email)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.SearchByEmail(email);
+
+            return _mapper.Map<List<UserDTO>>(user);
         }
 
-        public Task Remove(Guid id)
+        public async Task<List<UserDTO>> SearchByName(string name)
         {
-            throw new NotImplementedException();
-        }
+            var user = await _userRepository.SearchByName(name);
 
-        public Task<List<UserDTO>> SearchByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<UserDTO>> SearchByName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<UserDTO> Update(UserDTO userDTO)
-        {
-            throw new NotImplementedException();
+            return _mapper.Map<List<UserDTO>>(user);
         }
     }
 }
