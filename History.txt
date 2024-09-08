@@ -31,6 +31,7 @@
 
 
 14 - Mapeamentos feitos, migrations executadas, banco de dados com tabelas criadas e usuário já sendo inserido no banco
+15 - Adicionando AutoMapper e configurando ViewModels
 
 
 

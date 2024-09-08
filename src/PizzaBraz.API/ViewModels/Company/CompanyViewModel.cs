@@ -1,4 +1,4 @@
-﻿namespace PizzaBraz.API.ViewModels
+﻿namespace PizzaBraz.API.ViewModels.Company
 {
     public class CompanyViewModel
     {

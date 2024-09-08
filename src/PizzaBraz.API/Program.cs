@@ -9,7 +9,9 @@ using PizzaBraz.Services.Services;
 using AutoMapper;
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Services.DTO;
-using PizzaBraz.API.ViewModels;
+using PizzaBraz.API.ViewModels.User;
+using PizzaBraz.API.ViewModels.Company;
+using PizzaBraz.API.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,15 +25,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // AutoMapper Configuration
-var autoMapperConfig = new MapperConfiguration(conf =>
-{
-    conf.CreateMap<User, UserDTO>().ReverseMap();
-    conf.CreateMap<UserViewModel, UserDTO>().ReverseMap();
+builder.Services.AddAutoMapper(typeof(MapperProfile));
+//builder.Services.AddAutoMapper(cfg =>
+//{
+//    cfg.AddProfile<MappingProfile>(); // Registra o perfil de mapeamento
+//}, AppDomain.CurrentDomain.GetAssemblies());
 
-    conf.CreateMap<Company, CompanyDTO>().ReverseMap();
-    conf.CreateMap<CompanyViewModel, CompanyDTO>().ReverseMap();
-});
-builder.Services.AddSingleton(autoMapperConfig.CreateMapper());
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

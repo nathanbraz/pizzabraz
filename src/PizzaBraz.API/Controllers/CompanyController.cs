@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBraz.API.Utilities;
 using PizzaBraz.API.ViewModels;
+using PizzaBraz.API.ViewModels.Company;
 using PizzaBraz.Core.Exceptions;
 using PizzaBraz.Services.DTO;
 using PizzaBraz.Services.Interfaces;

@@ -1,4 +1,4 @@
-﻿namespace PizzaBraz.API.Controllers
+﻿namespace PizzaBraz.API.ViewModels
 {
     public class ResultViewModel
     {

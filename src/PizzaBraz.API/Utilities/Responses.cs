@@ -1,4 +1,4 @@
-﻿using PizzaBraz.API.Controllers;
+﻿using PizzaBraz.API.ViewModels;
 
 namespace PizzaBraz.API.Utilities
 {

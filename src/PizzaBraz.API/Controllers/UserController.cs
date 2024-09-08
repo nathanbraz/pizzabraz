@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using PizzaBraz.API.ViewModels;
+using PizzaBraz.API.ViewModels.User;
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Services.DTO;
 using PizzaBraz.Services.Interfaces;
@@ -10,32 +12,34 @@ namespace PizzaBraz.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpPost]
         [Route("/api/v1/users/create")]
-        public async Task<IActionResult> Create([FromBody] UserViewModel user)
+        public async Task<IActionResult> Create([FromBody] CreateUserViewModel user)
         {
             try
             {
-                var userDTO = new UserDTO
-                {
-                    CompanyId = Guid.Parse("f9974671-adc5-4a50-822c-2218e317d3e4"),
-                    Email = user.Email,
-                    Name = user.Name,
-                    Password = user.Password,
-                    Role = user.Role,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdateAt = DateTime.UtcNow,
-                };
+                var userDTO = _mapper.Map<UserDTO>(user);
+                userDTO.CreatedAt = DateTime.Now;
+                userDTO.UpdateAt = DateTime.Now;
 
                 var userCreated = await _userService.Create(userDTO);
 
-                return Ok(userCreated);
+                var userViewModel = _mapper.Map<UserViewModel>(userCreated);
+
+                return Ok(new ResultViewModel
+                {
+                    Message = "Usuário cadastrado com sucesso.",
+                    Success = true,
+                    Data = userViewModel
+                });
             }
             catch (Exception)
             {
