@@ -17,7 +17,7 @@ namespace PizzaBraz.Services.DTO
         public string Email { get; set; }
         public string Subdomain { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
+        public DateTime? UpdateAt { get; set; }
 
         public CompanyDTO() { }
 

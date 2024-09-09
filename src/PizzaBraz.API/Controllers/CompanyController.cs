@@ -35,8 +35,8 @@ namespace PizzaBraz.API.Controllers
                     Phone = companyViewModel.Phone,
                     Email = companyViewModel.Email,
                     Subdomain = companyViewModel.Subdomain,
-                    CreatedAt = DateTime.Now,
-                    UpdateAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow,
+                    UpdateAt = null
                 };
 
                 var companyCreated = await _companyService.Create(companyDTO);

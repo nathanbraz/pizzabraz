@@ -10,7 +10,7 @@ namespace PizzaBraz.Domain.Entities
     {
         public Guid Id { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
 
         internal List<string> _errors;
         public IReadOnlyCollection<string> Errors => _errors;

@@ -46,14 +46,14 @@ namespace PizzaBraz.Infra.Mappings
             builder.HasIndex(c => c.Email)
                 .IsUnique();
 
-            builder.Property(c => c.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+            builder.Property(x => x.CreatedAt)
                 .HasColumnName("created_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone");
 
-            builder.Property(c => c.UpdatedAt)
+            builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone")
+                .IsRequired(false);
 
             // Configuração de relacionamento com Company
             builder.HasOne(c => c.Company)

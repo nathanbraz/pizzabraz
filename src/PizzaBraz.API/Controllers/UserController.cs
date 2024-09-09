@@ -27,8 +27,8 @@ namespace PizzaBraz.API.Controllers
             try
             {
                 var userDTO = _mapper.Map<UserDTO>(user);
-                userDTO.CreatedAt = DateTime.Now;
-                userDTO.UpdateAt = DateTime.Now;
+                userDTO.CreatedAt = DateTime.UtcNow;
+                userDTO.UpdateAt = null;
 
                 var userCreated = await _userService.Create(userDTO);
 

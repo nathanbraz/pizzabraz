@@ -20,6 +20,10 @@ namespace PizzaBraz.Infra.Context
         public virtual DbSet<ProductType> ProductTypes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<RolePermission> RolePermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -32,6 +36,10 @@ namespace PizzaBraz.Infra.Context
             builder.ApplyConfiguration(new ProductTypeMap());
             builder.ApplyConfiguration(new OrderMap());
             builder.ApplyConfiguration(new OrderItemMap());
+            builder.ApplyConfiguration(new RoleMap());
+            builder.ApplyConfiguration(new PermissionMap());
+            builder.ApplyConfiguration(new UserRoleMap());
+            builder.ApplyConfiguration(new RolePermissionMap());
         }
     }
 }

@@ -67,13 +67,13 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnType("VARCHAR(20)");
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnName("created_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone");
 
             builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone")
+                .IsRequired(false);
 
             // Configuração de relacionamento com Customer
             builder.HasOne(x => x.Customer)

@@ -42,14 +42,14 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnName("is_used")
                 .HasColumnType("BOOLEAN");
 
-            builder.Property(c => c.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+            builder.Property(x => x.CreatedAt)
                 .HasColumnName("created_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone");
 
-            builder.Property(c => c.UpdatedAt)
+            builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone")
+                .IsRequired(false);
 
             // Configuração do relacionamento com Customer
             builder.HasOne(ct => ct.Customer)

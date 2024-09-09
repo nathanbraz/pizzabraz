@@ -14,7 +14,7 @@ namespace PizzaBraz.Services.DTO
         public string Password { get; set; }
         public string Role { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
+        public DateTime? UpdateAt { get; set; }
 
         public Guid CompanyId { get; set; }
 

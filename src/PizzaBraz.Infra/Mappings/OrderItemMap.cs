@@ -40,14 +40,14 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnName("unit_price")
                 .HasColumnType("DECIMAL(18, 2)");
 
-            builder.Property(c => c.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+            builder.Property(x => x.CreatedAt)
                 .HasColumnName("created_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone");
 
-            builder.Property(c => c.UpdatedAt)
+            builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone")
+                .IsRequired(false);
 
             // Configuração do relacionamento com Order
             builder.HasOne(oi => oi.Order)

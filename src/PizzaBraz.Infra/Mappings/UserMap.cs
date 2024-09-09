@@ -49,21 +49,24 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnType("VARCHAR(50)");
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnName("created_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone");
 
             builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
-                .HasColumnType("TIMESTAMP");
+                .HasColumnType("timestamp with time zone")
+                .IsRequired(false);
 
             // Configuração do relacionamento com Company
             builder.HasOne(u => u.Company)
-                   .WithMany(c => c.Users)
-                   .HasForeignKey(u => u.CompanyId)
-                   .OnDelete(DeleteBehavior.Restrict)
-                   .HasConstraintName("FK_User_Company");
+                .WithMany(c => c.Users)
+                .HasForeignKey(u => u.CompanyId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_User_Company");
 
+            builder.HasMany(u => u.UserRoles)
+                .WithOne(ur => ur.User)
+                .HasForeignKey(ur => ur.UserId);
         }
     }
 }
