@@ -8,11 +8,11 @@ namespace PizzaBraz.Domain.Entities
 {
     public class Product : Base
     {
-        public Guid ProductTypeId { get; set; }
-        public Guid CompanyId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public Guid ProductTypeId { get; private set; }
+        public Guid CompanyId { get; private set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public decimal Price { get; private set; }
 
         public ProductType ProductType { get; set; }
         public Company Company { get; set; }

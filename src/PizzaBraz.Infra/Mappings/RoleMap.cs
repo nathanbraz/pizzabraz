@@ -38,6 +38,15 @@ namespace PizzaBraz.Infra.Mappings
             builder.HasMany(r => r.RolePermissions)
                 .WithOne(rp => rp.Role)
                 .HasForeignKey(rp => rp.RoleId);
+
+            builder.Property(r => r.CreatedAt)
+                .HasColumnName("created_at")
+                .HasColumnType("timestamp with time zone");
+
+            builder.Property(r => r.UpdatedAt)
+                .HasColumnName("updated_at")
+                .HasColumnType("timestamp with time zone")
+                .IsRequired(false);
         }
     }
 }

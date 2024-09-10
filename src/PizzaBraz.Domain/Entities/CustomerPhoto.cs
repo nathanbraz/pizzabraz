@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Domain.Entities
 {
-    public class Order : Base
+    public class CustomerPhoto : Base
     {
         public Guid CustomerId { get; private set; }
-        public Guid CompanyId { get; private set; }
-        public DateTime Date { get; private set; }
-        public string Status { get; private set; }
-        public decimal Total { get; private set; }
+        public string PhotoPath { get; private set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public bool IsMain { get; private set; }
+        public int DisplayOrder { get; private set; }
 
         public Customer Customer { get; set; }
-        public Company Company { get; set; }
-
-        public ICollection<OrderItem> OrderItems { get; set; }
 
         public override bool Validate()
         {

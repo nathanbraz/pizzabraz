@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Domain.Entities
 {
-    public class Permission
+    public class Permission : Base
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
 
         public ICollection<RolePermission> RolePermissions { get; set; }
+
+       public override bool Validate()
+        {
+            return true;
+        }
     }
 }

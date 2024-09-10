@@ -32,6 +32,8 @@
 
 14 - Mapeamentos feitos, migrations executadas, banco de dados com tabelas criadas e usuário já sendo inserido no banco
 15 - Adicionando AutoMapper e configurando ViewModels
+16 - Criando Tabelas de Roles e Permissions para usuários, migration criada e funcionando, banco ok.
+17 - 
 
 
 

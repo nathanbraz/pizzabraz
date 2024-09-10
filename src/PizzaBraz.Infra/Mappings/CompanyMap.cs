@@ -35,9 +35,9 @@ namespace PizzaBraz.Infra.Mappings
 
             builder.Property(c => c.CNPJ)
                 .IsRequired()
-                .HasMaxLength(20)
+                .HasMaxLength(14)
                 .HasColumnName("cnpj")
-                .HasColumnType("VARCHAR(20)");
+                .HasColumnType("VARCHAR(14)");
 
             builder.Property(c => c.Address)
                 .HasMaxLength(255)

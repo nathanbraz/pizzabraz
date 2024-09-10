@@ -8,10 +8,10 @@ namespace PizzaBraz.Domain.Entities
 {
     public class UserRole
     {
-        public Guid UserId { get; set; }
-        public Guid RoleId { get; set; }
+        public Guid UserId { get; private set; }
+        public Guid RoleId { get; private set; }
 
-        public User User { get; set; }
-        public Role Role { get; set; }
+        public User User { get; private set; }
+        public Role Role { get; private set; }
     }
 }
