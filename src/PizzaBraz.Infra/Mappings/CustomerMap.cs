@@ -33,9 +33,12 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(c => c.WhatsAppNumber)
-            .HasMaxLength(20)
-            .HasColumnName("whatsapp_number")
-            .HasColumnType("VARCHAR(20)");
+                .HasMaxLength(20)
+                .HasColumnName("whatsapp_number")
+                .HasColumnType("VARCHAR(20)");
+
+            builder.HasIndex(u => u.WhatsAppNumber)
+                .IsUnique();
 
             builder.Property(c => c.Email)
                 .IsRequired()

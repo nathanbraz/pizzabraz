@@ -39,15 +39,23 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnName("cnpj")
                 .HasColumnType("VARCHAR(14)");
 
+            builder.HasIndex(u => u.CNPJ)
+                .IsUnique();
+
             builder.Property(c => c.Address)
+                .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("address")
                 .HasColumnType("VARCHAR(255)");
 
             builder.Property(c => c.Phone)
+                .IsRequired()
                 .HasMaxLength(20)
                 .HasColumnName("phone")
                 .HasColumnType("VARCHAR(20)");
+
+            builder.HasIndex(u => u.Phone)
+                .IsUnique();
 
             builder.Property(c => c.Email)
                 .IsRequired()
@@ -55,11 +63,17 @@ namespace PizzaBraz.Infra.Mappings
                 .HasColumnName("email")
                 .HasColumnType("VARCHAR(100)");
 
+            builder.HasIndex(u => u.Email)
+                .IsUnique();
+
             builder.Property(c => c.Subdomain)
                 .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnName("subdomain")
                 .HasColumnType("VARCHAR(50)");
+
+            builder.HasIndex(u => u.Subdomain)
+                .IsUnique();
 
             builder.Property(x => x.CreatedAt)
                 .HasColumnName("created_at")

@@ -18,6 +18,7 @@ namespace PizzaBraz.Domain.Entities
         public ICollection<CustomerAddress> CustomerAddresses { get; set; }
         public ICollection<Order> Orders { get; set; }
         public ICollection<CustomerToken> CustomerTokens { get; set; }
+        public ICollection<CustomerPhoto> CustomerPhotos { get; set; }
 
         public override bool Validate()
         {

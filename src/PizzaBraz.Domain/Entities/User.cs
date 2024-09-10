@@ -15,8 +15,9 @@ namespace PizzaBraz.Domain.Entities
         public string Role { get; private set; }
 
         public Guid CompanyId { get; private set; }
-        public Company? Company { get; set; }
+        public Company Company { get; set; }
         public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserPhoto> UserPhotos { get; set; }
 
         protected User() { }
 

@@ -18,6 +18,7 @@ namespace PizzaBraz.Domain.Entities
         public Company Company { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<ProductPhoto> ProductPhotos { get; set; }
 
         public override bool Validate()
         {

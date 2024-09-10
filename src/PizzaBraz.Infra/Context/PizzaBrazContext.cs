@@ -24,6 +24,9 @@ namespace PizzaBraz.Infra.Context
         public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<RolePermission> RolePermissions { get; set; }
+        public virtual DbSet<UserPhoto> UserPhotos { get; set; }
+        public virtual DbSet<ProductPhoto> ProductPhotos { get; set; }
+        public virtual DbSet<CustomerPhoto> CustomerPhotos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -40,6 +43,9 @@ namespace PizzaBraz.Infra.Context
             builder.ApplyConfiguration(new PermissionMap());
             builder.ApplyConfiguration(new UserRoleMap());
             builder.ApplyConfiguration(new RolePermissionMap());
+            builder.ApplyConfiguration(new UserPhotoMap());
+            builder.ApplyConfiguration(new ProductPhotoMap());
+            builder.ApplyConfiguration(new CustomerPhotoMap());
         }
     }
 }
