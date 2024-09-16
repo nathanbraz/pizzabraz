@@ -9,5 +9,8 @@ namespace PizzaBraz.Infra.Interfaces
 {
     public interface ICustomerRepository : IBaseRepository<Customer>
     {
+        Task<Customer> GetByNumber(string number);
+        Task<List<Customer>> GetByCompanyId(Guid companyId);
+        Task<List<Customer>> SearchByName(string name);
     }
 }

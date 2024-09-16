@@ -51,9 +51,9 @@ namespace PizzaBraz.Services.Services
             var user = _mapper.Map<User>(userDTO);
             user.Validate();
 
-            var UserCreated = await _userRepository.Update(user);
+            var userCreated = await _userRepository.Update(user);
 
-            return _mapper.Map<UserDTO>(UserCreated);
+            return _mapper.Map<UserDTO>(userCreated);
         }
 
         public async Task<UserDTO> Get(Guid id)
