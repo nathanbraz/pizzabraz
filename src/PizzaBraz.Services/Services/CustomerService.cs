@@ -48,7 +48,7 @@ namespace PizzaBraz.Services.Services
 
             if (customerExists == null)
             {
-                throw new DomainException("Não existe nenhum clinte com o id informado");
+                throw new DomainException("Não existe nenhum cliente com o id informado");
             }
 
             var customer = _mapper.Map<Customer>(customerDTO);

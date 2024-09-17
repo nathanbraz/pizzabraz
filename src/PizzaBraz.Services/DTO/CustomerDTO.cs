@@ -10,13 +10,13 @@ namespace PizzaBraz.Services.DTO
     public class CustomerDTO
     {
         public Guid Id { get; set; }
-        public string Name { get; private set; }
-        public string WhatsAppNumber { get; private set; }
-        public string Email { get; private set; }
+        public string Name { get; set; }
+        public string WhatsAppNumber { get; set; }
+        public string Email { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
 
-        public Guid CompanyId { get; private set; }
+        public Guid CompanyId { get; set; }
 
         public CustomerDTO() { }
 
