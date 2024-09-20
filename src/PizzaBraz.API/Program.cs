@@ -33,9 +33,12 @@ builder.Services.AddAutoMapper(typeof(MapperProfile));
 
 
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 //builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 
 // Swagger Configuration
