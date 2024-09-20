@@ -12,12 +12,37 @@ using PizzaBraz.Services.DTO;
 using PizzaBraz.API.ViewModels.User;
 using PizzaBraz.API.ViewModels.Company;
 using PizzaBraz.API.AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var stringConexao = builder.Configuration.GetConnectionString("PizzaBraz");
 
 builder.Services.AddDbContext<PizzaBrazContext>(options => options.UseNpgsql(stringConexao, b => b.MigrationsAssembly("PizzaBraz.Infra")));
+
+// ---------------------------------------------------------------- Configuração do secret key para o JWT
+var secretKey = builder.Configuration["Jwt:SecretKey"];
+builder.Services.AddScoped<ITokenService>(provider => new TokenService(secretKey));
+
+// Configuração do JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey)),
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true, // Verifica a expiração do token
+    };
+});
+// ----------------------------------------------------------------
 
 builder.Services.AddControllers();
 
@@ -56,29 +81,6 @@ builder.Services.AddSwaggerGen(c =>
             Url = new System.Uri("https://nathanbraz.dev")
         }
     });
-
-    //c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    //{
-    //    In = ParameterLocation.Header,
-    //    Description = "Por favor, utilize o Bearer <TOKEN>",
-    //    Name = "token",
-    //    Type = SecuritySchemeType.ApiKey
-    //});
-
-    //c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    //{
-    //    {
-    //        new OpenApiSecurityScheme
-    //        {
-    //            Reference = new OpenApiReference
-    //            {
-    //                Type = ReferenceType.SecurityScheme,
-    //                Id = "Bearer"
-    //            }
-    //        },
-    //        new string[] { }
-    //    }
-    //});
 });
 
 var app = builder.Build();
