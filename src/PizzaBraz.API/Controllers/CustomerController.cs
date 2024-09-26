@@ -56,11 +56,10 @@ namespace PizzaBraz.API.Controllers
         {
             try
             {
-                CustomerDTO customerDTO;
                 var customer = await _customerService.GetByNumber(whatsappNumber);
                 if (customer == null)
                 {
-                    customerDTO = new CustomerDTO
+                    var customerDTO = new CustomerDTO
                     {
                         Name = "CLIENTE",
                         WhatsAppNumber = whatsappNumber,
@@ -108,6 +107,14 @@ namespace PizzaBraz.API.Controllers
                 Success = true,
                 Message = "Token válido"
             });
+
+        }
+
+        [HttpGet]
+        [Route("api/v1/customers/teste")]
+        public IActionResult Teste()
+        {
+            return Ok(new { Name = "Nathan", LastName = "Braz", Age = 25 });
         }
     }
 }
