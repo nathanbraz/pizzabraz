@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PizzaBraz.Services.DTO
+﻿namespace PizzaBraz.API.ViewModels.Product
 {
-    public class ProductDTO
+    public class ProductViewModel
     {
         public Guid Id { get; set; }
         public Guid ProductTypeId { get; set; }

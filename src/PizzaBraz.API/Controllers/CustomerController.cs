@@ -40,8 +40,8 @@ namespace PizzaBraz.API.Controllers
                 return Ok(new ResultViewModel
                 {
                     Data = customerViewModel,
-                    Message = "Cliente cadastrado com sucesso.",
-                    Success = true
+                    Success = true,
+                    Message = "Cliente cadastrado com sucesso."
                 });
             }
             catch (Exception)

@@ -30,7 +30,7 @@ namespace PizzaBraz.Services.Services
                 {
                     new Claim("CustomerId", customerId.ToString())
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(2), // Token expira em 1 hora
+                Expires = DateTime.UtcNow.AddMinutes(2), // Token expira em 2 minutos
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             
