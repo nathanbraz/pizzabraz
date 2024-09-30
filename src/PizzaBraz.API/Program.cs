@@ -6,11 +6,6 @@ using PizzaBraz.Infra.Interfaces;
 using PizzaBraz.Infra.Repositories;
 using PizzaBraz.Services.Interfaces;
 using PizzaBraz.Services.Services;
-using AutoMapper;
-using PizzaBraz.Domain.Entities;
-using PizzaBraz.Services.DTO;
-using PizzaBraz.API.ViewModels.User;
-using PizzaBraz.API.ViewModels.Company;
 using PizzaBraz.API.AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -60,10 +55,12 @@ builder.Services.AddAutoMapper(typeof(MapperProfile));
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 //builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 
 // Swagger Configuration

@@ -61,6 +61,13 @@ namespace PizzaBraz.Services.Services
         public async Task Remove(Guid id)
         {
             await _productRepository.Remove(id);
-        }        
+        }
+
+        public async Task<List<ProductDTO>> GetAll()
+        {
+            var product = await _productRepository.GetAll();
+
+            return _mapper.Map<List<ProductDTO>>(product);
+        }
     }
 }

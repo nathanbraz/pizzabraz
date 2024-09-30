@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PizzaBraz.API.ViewModels.Company;
 using PizzaBraz.API.ViewModels.Customer;
+using PizzaBraz.API.ViewModels.Product;
 using PizzaBraz.API.ViewModels.User;
 using PizzaBraz.Domain.Entities;
 using PizzaBraz.Services.DTO;
@@ -19,6 +20,10 @@ namespace PizzaBraz.API.AutoMapper
                 .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
                 .ForMember(dest => dest.UpdateAt, opt => opt.Ignore());
 
+            CreateMap<CreateProductViewModel, ProductDTO>()
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore());
+
             CreateMap<UserDTO, UserViewModel>();
             CreateMap<User, UserDTO>().ReverseMap();
 
@@ -31,6 +36,9 @@ namespace PizzaBraz.API.AutoMapper
 
             CreateMap<Customer, CustomerDTO>().ReverseMap();
             CreateMap<CustomerViewModel, CustomerDTO>().ReverseMap();
+
+            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<ProductViewModel, ProductDTO>().ReverseMap();
 
         }
     }
