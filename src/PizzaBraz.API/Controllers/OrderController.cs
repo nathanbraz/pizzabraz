@@ -34,7 +34,8 @@ namespace PizzaBraz.API.Controllers
 
                 var orderCreated = await _orderService.Create(orderDTO);
 
-                return Ok(new ResultViewModel { 
+                return Ok(new ResultViewModel
+                { 
                     Message = "Pedido cadastrado com sucesso.",
                     Success = true,
                     Data = orderCreated

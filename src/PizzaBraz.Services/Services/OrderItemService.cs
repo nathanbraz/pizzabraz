@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Services.Services
 {
-    public class OrderItemSercice : IOrderItemService
+    public class OrderItemService : IOrderItemService
     {
         public readonly IOrderItemRepository _orderItemRepository;
         public readonly IMapper _mapper;
 
-        public OrderItemSercice(IOrderItemRepository orderItemRepository, IMapper mapper)
+        public OrderItemService(IOrderItemRepository orderItemRepository, IMapper mapper)
         {
             _orderItemRepository = orderItemRepository;
             _mapper = mapper;
