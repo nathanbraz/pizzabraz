@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Services.Interfaces
 {
-    public interface IOrderService
+    public interface IOrderItemService
     {
-        Task<OrderDTO> Create(OrderDTO orderDTO);
-        Task<OrderDTO> Update(OrderDTO orderDTO);
+        Task<OrderItemDTO> Create(OrderItemDTO orderItemDTO);
+        Task<OrderItemDTO> Update(OrderItemDTO orderItemDTO);
+        Task<OrderItemDTO> Get(Guid id);
         Task Remove(Guid id);
-        Task<OrderDTO> Get(Guid id); 
     }
 }

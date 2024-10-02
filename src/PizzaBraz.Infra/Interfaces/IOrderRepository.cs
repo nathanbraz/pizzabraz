@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PizzaBraz.Infra.Interfaces
 {
-    internal interface IOrderRepository : IBaseRepository<Order>
+    public interface IOrderRepository : IBaseRepository<Order>
     {
     }
 }
