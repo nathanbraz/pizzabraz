@@ -13,5 +13,7 @@ namespace PizzaBraz.Services.Interfaces
         Task<OrderDTO> Update(OrderDTO orderDTO);
         Task Remove(Guid id);
         Task<OrderDTO> Get(Guid id); 
+        Task<List<OrderDTO>> GetAll();
+        Task<List<OrderDTO>> GetAllWithOrderItems();
     }
 }

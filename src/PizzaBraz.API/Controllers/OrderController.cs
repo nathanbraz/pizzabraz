@@ -46,5 +46,14 @@ namespace PizzaBraz.API.Controllers
                 return StatusCode(500, "Ocorreu um erro ao cadastrar um pedido");
             }
         }
+
+        [HttpGet]
+        [Route("/api/v1/orders")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var orders = await _orderService.GetAllWithOrderItems();
+
+            return Ok(orders);
+        }
     }
 }

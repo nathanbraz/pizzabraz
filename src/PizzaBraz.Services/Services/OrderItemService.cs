@@ -15,18 +15,20 @@ namespace PizzaBraz.Services.Services
     public class OrderItemService : IOrderItemService
     {
         public readonly IOrderItemRepository _orderItemRepository;
+        public readonly IProductRepository _productRepository;
         public readonly IMapper _mapper;
 
-        public OrderItemService(IOrderItemRepository orderItemRepository, IMapper mapper)
+        public OrderItemService(IOrderItemRepository orderItemRepository, IProductRepository productRepository, IMapper mapper)
         {
             _orderItemRepository = orderItemRepository;
+            _productRepository = productRepository;
             _mapper = mapper;
         }
 
         public async Task<OrderItemDTO> Create(OrderItemDTO orderItemDTO)
         {
-            var orderItemExists = await _orderItemRepository.Get(orderItemDTO.Id);
-            if (orderItemExists != null)
+            var orderItemExists = await _orderItemRepository.VerifyExistsOrderItem(orderItemDTO.OrderId, orderItemDTO.ProductId);
+            if (orderItemExists)
             {
                 throw new DomainException("Esse item já está incluso no pedido.");
             }

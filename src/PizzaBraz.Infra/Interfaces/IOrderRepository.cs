@@ -9,5 +9,7 @@ namespace PizzaBraz.Infra.Interfaces
 {
     public interface IOrderRepository : IBaseRepository<Order>
     {
+        //Task<List<Order>> GetAll();
+        Task<List<Order>> GetAllWithOrderItems();
     }
 }

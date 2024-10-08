@@ -1,4 +1,5 @@
-﻿using PizzaBraz.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using PizzaBraz.Domain.Entities;
 using PizzaBraz.Infra.Context;
 using PizzaBraz.Infra.Interfaces;
 using System;
@@ -16,6 +17,11 @@ namespace PizzaBraz.Infra.Repositories
         public OrderItemRepository(PizzaBrazContext context) : base(context)
         {
             _context = context;
+        }
+
+        public async Task<bool> VerifyExistsOrderItem(Guid orderId, Guid productId)
+        {
+            return await _context.OrderItems.AnyAsync(x => x.OrderId == orderId && x.ProductId == productId);
         }
     }
 }

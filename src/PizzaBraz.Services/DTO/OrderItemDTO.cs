@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaBraz.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,7 @@ namespace PizzaBraz.Services.DTO
         public decimal UnitPrice { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public ProductDTO Product { get; private set; }
     }
 }

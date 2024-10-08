@@ -58,5 +58,19 @@ namespace PizzaBraz.Services.Services
 
             return _mapper.Map<OrderDTO>(orderUpdated);
         }
+
+        public async Task<List<OrderDTO>> GetAll()
+        {
+            var orders = await _orderRepository.GetAll();
+
+            return _mapper.Map<List<OrderDTO>>(orders);
+        }
+
+        public async Task<List<OrderDTO>> GetAllWithOrderItems()
+        {
+            var orderWithOrderItems = await _orderRepository.GetAllWithOrderItems();
+
+            return _mapper.Map<List<OrderDTO>>(orderWithOrderItems);
+        }
     }
 }

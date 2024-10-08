@@ -9,5 +9,6 @@ namespace PizzaBraz.Infra.Interfaces
 {
     public interface IOrderItemRepository : IBaseRepository<OrderItem>
     {
+        Task<bool> VerifyExistsOrderItem(Guid orderId, Guid productId);
     }
 }

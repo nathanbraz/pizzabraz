@@ -1,4 +1,5 @@
-﻿using PizzaBraz.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using PizzaBraz.Domain.Entities;
 using PizzaBraz.Infra.Context;
 using PizzaBraz.Infra.Interfaces;
 using System;
@@ -16,6 +17,18 @@ namespace PizzaBraz.Infra.Repositories
         public OrderRepository(PizzaBrazContext context) : base(context)
         {
             _context = context;
+        }
+
+        //public async Task<List<Order>> GetAll()
+        //{
+        //    var orders = await _context.Orders.ToListAsync();
+        //    return orders;
+        //}
+
+        public async Task<List<Order>> GetAllWithOrderItems()
+        {
+            var orderWithOrderItems = await _context.Orders.Include(x => x.OrderItems).ThenInclude(oi => oi.Product).ToListAsync();
+            return orderWithOrderItems;
         }
     }
 }

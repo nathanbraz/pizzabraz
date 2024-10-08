@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBraz.API.ViewModels;
 using PizzaBraz.API.ViewModels.OrderItem;
+using PizzaBraz.Core.Exceptions;
 using PizzaBraz.Infra.Interfaces;
 using PizzaBraz.Services.DTO;
 using PizzaBraz.Services.Interfaces;
@@ -40,9 +41,24 @@ namespace PizzaBraz.API.Controllers
                     Data = orderItemCreated
                 });
             }
+            catch (DomainException ex)
+            {
+                return BadRequest(new ResultViewModel
+                {
+                    Message = ex.Message,
+                    Success = false,
+                    Data = null
+                });
+            }
             catch (Exception)
             {
-                return StatusCode(500, "Ocorreu um erro ao inserir um item no pedido.");
+                // Retorna erro interno
+                return StatusCode(500, new ResultViewModel
+                {
+                    Message = "Ocorreu um erro ao inserir um item no pedido.",
+                    Success = false,
+                    Data = null
+                });
             }
         }
     }
