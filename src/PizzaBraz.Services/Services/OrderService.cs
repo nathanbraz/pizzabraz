@@ -72,5 +72,20 @@ namespace PizzaBraz.Services.Services
 
             return _mapper.Map<List<OrderDTO>>(orderWithOrderItems);
         }
+
+        public async Task<OrderDTO> ConfirmOrder(Guid id)
+        {
+            var order = await _orderRepository.Get(id);
+
+            if (order == null)
+            {
+                throw new DomainException("Não existe nenhum pedido com este Id.");
+            }
+
+            var orderUpdated = await _orderRepository.Update(order);
+            var orderWithItems = await _orderRepository.GetWithOrderItems(orderUpdated.Id);
+
+            return _mapper.Map<OrderDTO>(orderWithItems);
+        }
     }
 }

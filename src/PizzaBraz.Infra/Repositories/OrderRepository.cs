@@ -27,8 +27,20 @@ namespace PizzaBraz.Infra.Repositories
 
         public async Task<List<Order>> GetAllWithOrderItems()
         {
-            var orderWithOrderItems = await _context.Orders.Include(x => x.OrderItems).ThenInclude(oi => oi.Product).ToListAsync();
-            return orderWithOrderItems;
+            return await _context.Orders.AsNoTracking()
+                                        .Include(x => x.OrderItems)
+                                        .ThenInclude(oi => oi.Product)
+                                        .ToListAsync();
+        }
+
+
+        public async Task<Order> GetWithOrderItems(Guid id)
+        {
+            return await _context.Orders
+                                    .AsNoTracking()
+                                    .Include(o => o.OrderItems)
+                                    .ThenInclude(oi => oi.Product)
+                                    .SingleOrDefaultAsync(x => x.Id == id);
         }
     }
 }

@@ -11,5 +11,6 @@ namespace PizzaBraz.Infra.Interfaces
     {
         //Task<List<Order>> GetAll();
         Task<List<Order>> GetAllWithOrderItems();
+        Task<Order> GetWithOrderItems(Guid id);
     }
 }
